@@ -11,10 +11,4 @@ class customexception(Exception):
     def __str__(self): 
         return f"Error occurs in file {self.filename} at line number {self.linenumber} with error message of {self.error_message}"
 
-try: 
-    a = 10/0 
-except Exception as e: 
-    raise customexception(e ,sys)
-
-print("hello world")
     
