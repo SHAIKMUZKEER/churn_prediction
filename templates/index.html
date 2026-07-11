@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Churn Prediction</title>
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+height:100vh;
+
+background-image:url("{{ url_for('static', filename='images/background.jpg') }}");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(15,23,42,.75);
+
+backdrop-filter:blur(4px);
+
+}
+
+.hero{
+
+position:relative;
+
+z-index:10;
+
+text-align:center;
+
+max-width:900px;
+
+padding:40px;
+
+}
+
+.hero h1{
+
+font-size:55px;
+
+font-weight:800;
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#d7d7d7;
+
+margin-bottom:40px;
+
+}
+
+.feature-box{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+margin-bottom:50px;
+
+flex-wrap:wrap;
+
+}
+
+.feature{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+padding:20px;
+
+border-radius:15px;
+
+width:180px;
+
+color:white;
+
+transition:.4s;
+
+}
+
+.feature:hover{
+
+transform:translateY(-8px);
+
+}
+
+.feature i{
+
+font-size:35px;
+
+margin-bottom:15px;
+
+color:#38bdf8;
+
+}
+
+.start-btn{
+
+display:inline-block;
+
+padding:18px 45px;
+
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+color:white;
+
+text-decoration:none;
+
+font-size:20px;
+
+font-weight:700;
+
+border-radius:50px;
+
+transition:.4s;
+
+box-shadow:0 15px 35px rgba(37,99,235,.4);
+
+}
+
+.start-btn:hover{
+
+transform:translateY(-5px);
+
+color:white;
+
+box-shadow:0 20px 45px rgba(37,99,235,.6);
+
+}
+
+.footer{
+
+position:absolute;
+
+bottom:20px;
+
+width:100%;
+
+text-align:center;
+
+color:#d6d6d6;
+
+font-size:14px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<span class="badge bg-primary mb-4 p-3">
+
+AI Powered Machine Learning Application
+
+</span>
+
+<h1>
+
+Customer Churn Prediction System
+
+</h1>
+
+<p>
+
+Predict whether a telecom customer is likely to leave the company using an AI-powered Machine Learning model trained on real customer behavior.
+
+</p>
+
+<div class="feature-box">
+
+<div class="feature">
+
+<i class="fa-solid fa-brain"></i>
+
+<h5>Machine Learning</h5>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h5>High Accuracy</h5>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h5>Real-Time Prediction</h5>
+
+</div>
+
+</div>
+
+<a href="{{ url_for('predict_datapoint') }}" class="start-btn">
+
+<i class="fa-solid fa-play me-2"></i>
+
+Start Prediction
+
+</a>
+
+</div>
+
+<div class="footer">
+
+© 2026 Customer Churn Prediction System | Built using Flask • Python • Scikit-Learn
+
+</div>
+
+</body>
+
+</html>

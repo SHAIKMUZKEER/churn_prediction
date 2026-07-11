@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Customer Churn Prediction</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- ========================================================= -->
+<!-- BACKGROUND OVERLAY -->
+<!-- ========================================================= -->
+
+<div class="background-overlay"></div>
+
+<!-- ========================================================= -->
+<!-- NAVBAR -->
+<!-- ========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark glass-navbar fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+
+            <i class="fa-solid fa-brain me-2"></i>
+
+            Customer Churn Prediction
+
+            <div class="small text-info">
+
+                AI Powered Customer Retention System
+
+            </div>
+
+        </a>
+
+        <button class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">Prediction</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">About Model</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="https://github.com/"
+                       target="_blank">
+
+                        GitHub
+
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ========================================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================================= -->
+
+<section class="hero-section">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<!-- ========================================================= -->
+<!-- LEFT SIDE -->
+<!-- ========================================================= -->
+
+<div class="col-lg-6">
+
+<span class="badge bg-primary px-3 py-2 mb-4">
+
+Enterprise Machine Learning Solution
+
+</span>
+
+<h1 class="display-4 fw-bold text-white">
+
+Customer Churn Prediction System
+
+</h1>
+
+<p class="lead text-light mt-4">
+
+Predict whether a telecom customer is likely to leave using an AI-powered
+Machine Learning model trained on real-world customer behaviour.
+
+</p>
+
+<div class="row mt-5">
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h5>High Accuracy</h5>
+
+<p>
+
+Optimized ML model for reliable churn prediction.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h5>Machine Learning</h5>
+
+<p>
+
+Advanced preprocessing with intelligent classification.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h5>Real-Time</h5>
+
+<p>
+
+Instant prediction with Flask backend.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- RIGHT SIDE -->
+<!-- ========================================================= -->
+
+<div class="col-lg-6">
+
+<div class="glass-card">
+
+<h2 class="fw-bold mb-2">
+
+Customer Information
+
+</h2>
+
+<p class="text-secondary">
+
+Fill in customer details below.
+
+</p>
+
+<form action="{{ url_for('predict_datapoint') }}"
+      method="POST">
+
+<!-- ========================================================= -->
+<!-- CONTRACT -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Contract
+
+</label>
+
+<select class="form-select"
+        name="Contract"
+        required>
+
+<option value="">Choose Contract</option>
+
+<option>Month-to-month</option>
+
+<option>One year</option>
+
+<option>Two year</option>
+
+</select>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- INTERNET -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Internet Service
+
+</label>
+
+<select class="form-select"
+        name="InternetService"
+        required>
+
+<option value="">Choose</option>
+
+<option>DSL</option>
+
+<option>Fiber optic</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- TECH SUPPORT -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Tech Support
+
+</label>
+
+<select class="form-select"
+        name="TechSupport"
+        required>
+
+<option value="">Choose</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+<option>No internet service</option>
+
+</select>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- PAYMENT -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Payment Method
+
+</label>
+
+<select class="form-select"
+        name="PaymentMethod"
+        required>
+
+<option value="">Choose</option>
+
+<option>Electronic check</option>
+
+<option>Mailed check</option>
+
+<option>Bank transfer (automatic)</option>
+
+<option>Credit card (automatic)</option>
+
+</select>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- DEPENDENTS -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Dependents
+
+</label>
+
+<select class="form-select"
+        name="Dependents"
+        required>
+
+<option value="">Choose</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+<!-- ========================================================= -->
+<!-- TENURE -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+    <label class="form-label">
+
+        Tenure (Months)
+
+    </label>
+
+    <input
+        type="number"
+        class="form-control"
+        name="tenure"
+        placeholder="Enter customer tenure"
+        min="0"
+        max="72"
+        required>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- MONTHLY CHARGES -->
+<!-- ========================================================= -->
+
+<div class="mb-3">
+
+    <label class="form-label">
+
+        Monthly Charges
+
+    </label>
+
+    <input
+        type="number"
+        class="form-control"
+        name="MonthlyCharges"
+        step="0.01"
+        placeholder="Enter Monthly Charges"
+        required>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- TOTAL CHARGES -->
+<!-- ========================================================= -->
+
+<div class="mb-4">
+
+    <label class="form-label">
+
+        Total Charges
+
+    </label>
+
+    <input
+        type="number"
+        class="form-control"
+        name="TotalCharges"
+        step="0.01"
+        placeholder="Enter Total Charges"
+        required>
+
+</div>
+<!-- ========================================================= -->
+<!-- PREDICT BUTTON -->
+<!-- ========================================================= -->
+
+<div class="d-grid mt-4">
+
+    <button
+        type="submit"
+        class="btn predict-btn">
+
+        <i class="fa-solid fa-chart-line me-2"></i>
+
+        Predict Customer Churn
+
+    </button>
+
+</div>
+
+</form>
+{% if result %}
+
+<div class="prediction-card mt-4">
+
+    <div class="prediction-box">
+
+        <h3 class="prediction-title">
+
+            Prediction Result
+
+        </h3>
+
+        {% if result == "Yes" %}
+
+        <div class="danger-box">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <h2>Customer is Likely to Churn</h2>
+
+            <p>
+                This customer has a high probability of leaving the company.
+                Consider a retention strategy.
+            </p>
+
+        </div>
+
+        {% else %}
+
+        <div class="success-box">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2>Customer is Not Likely to Churn</h2>
+
+            <p>
+                This customer is expected to remain with the company.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endif %}
+</section>
+<footer class="footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<h4>
+
+Customer Churn Prediction System
+
+</h4>
+
+<p>
+
+Enterprise AI Powered Customer Retention Platform
+
+</p>
+
+</div>
+
+<div class="col-md-6 text-md-end">
+
+<p>
+
+Built with
+
+<i class="fab fa-python"></i>
+
+Python
+
+|
+
+Flask
+
+|
+
+Scikit-Learn
+
+|
+
+Bootstrap
+
+|
+
+Machine Learning
+
+|
+
+RandomForest
+
+</p>
+
+<div class="social-icons">
+
+<a href="#">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fab fa-linkedin"></i>
+
+</a>
+
+</div>
+
+<p class="mt-2">
+
+© 2026 Customer Churn Prediction
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
