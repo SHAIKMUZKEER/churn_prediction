@@ -24,7 +24,7 @@ class data_ingestion(Dataconfigure):
         try: 
             df=pd.read_csv('notebook\data\churn_data.csv')
 
-            logging.info("data is readed in df")
+            logging.info("data is readed in dataframe")
 
             os.makedirs(os.path.dirname(self.train_data_path) , exist_ok = True)
 
@@ -42,15 +42,5 @@ class data_ingestion(Dataconfigure):
         except Exception as e: 
             raise customexception(e , sys)
 
-if __name__ == "__main__":
-    obj = data_ingestion()
-    train_data , test_data = obj.initiate_data_ingestion()
 
-    data_transfer = datatranformation()
-    train_arr , test_arr , file_path = data_transfer.initiate_data_transformation(train_data , test_data)
-
-    model_trainer = ModelTrainer()
-    f1_score , report = model_trainer.initiate_model_trainer(train_arr,test_arr)
-    print(f1_score)
-    print(report)
 

@@ -9,8 +9,6 @@ from src.exception import customexception
 from src.logger import logging
 from sklearn.metrics import f1_score,classification_report
 
-from sklearn.model_selection import GridSearchCV
-
 
 def save_object(file_path , obj): 
     try:
