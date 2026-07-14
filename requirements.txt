@@ -1,8 +1,10 @@
 numpy
 pandas
+seaborn
 scikit-learn
 matplotlib
 xgboost
 flask
 dill
+gunicorn
 -e .
