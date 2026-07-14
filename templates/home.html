@@ -79,28 +79,30 @@
              id="navbarNav">
 
             <ul class="navbar-nav ms-auto">
-
                 <li class="nav-item">
-                    <a class="nav-link active"
-                       href="#">Home</a>
-                </li>
+    <a class="nav-link active" href="#home">
+        Home
+    </a>
+</li>
 
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">Prediction</a>
-                </li>
+<li class="nav-item">
+    <a class="nav-link" href="#prediction">
+        Prediction
+    </a>
+</li>
 
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">About Model</a>
-                </li>
+<li class="nav-item">
+    <a class="nav-link" href="#about">
+        About Model
+    </a>
+</li>
 
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="https://github.com/"
-                       target="_blank">
+<li class="nav-item">
+    <a class="nav-link"
+       href="https://github.com/SHAIKMUZKEER/churn_prediction"
+       target="_blank">
 
-                        GitHub
+        GitHub
 
                     </a>
                 </li>
@@ -117,7 +119,7 @@
 <!-- HERO SECTION -->
 <!-- ========================================================= -->
 
-<section class="hero-section">
+<section class="hero-section" id="home">
 
 <div class="container">
 
@@ -228,7 +230,8 @@ Fill in customer details below.
 
 </p>
 
-<form action="{{ url_for('predict_datapoint') }}"
+<form id="prediction"
+      action="{{ url_for('predict_datapoint') }}"
       method="POST">
 
 <!-- ========================================================= -->
@@ -504,7 +507,7 @@ Dependents
 
 {% endif %}
 </section>
-<footer class="footer">
+<footer class="footer" id="about">
 
 <div class="container">
 
@@ -559,16 +562,16 @@ RandomForest
 </p>
 
 <div class="social-icons">
+<a href="https://github.com/SHAIKMUZKEER/churn_prediction"
+   target="_blank">
 
-<a href="#">
-
-<i class="fab fa-github"></i>
+    <i class="fab fa-github"></i>
 
 </a>
+<a href="https://www.linkedin.com/in/shaik-muzkeer-292141340/"
+   target="_blank">
 
-<a href="#">
-
-<i class="fab fa-linkedin"></i>
+    <i class="fab fa-linkedin"></i>
 
 </a>
 
