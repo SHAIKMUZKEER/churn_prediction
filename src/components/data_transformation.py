@@ -77,8 +77,8 @@ class datatranformation:
             train_data["TotalCharges"] = pd.to_numeric(train_data["TotalCharges"] , errors = "coerce")
             test_data["TotalCharges"] = pd.to_numeric(test_data["TotalCharges"] , errors = "coerce")
 
-            train_data["TotalCharges"].fillna(train_data["TotalCharges"].mean)
-            test_data["TotalCharges"].fillna(test_data["TotalCharges"].mean)
+            train_data["TotalCharges"].fillna(train_data["TotalCharges"].mean())
+            test_data["TotalCharges"].fillna(test_data["TotalCharges"].mean())
 
 
             input_train_data = train_data[features]
