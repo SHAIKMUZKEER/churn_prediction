@@ -6,5 +6,6 @@ matplotlib
 xgboost
 flask
 dill
+joblib
 gunicorn
 -e .
