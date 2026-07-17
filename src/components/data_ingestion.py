@@ -43,4 +43,14 @@ class data_ingestion(Dataconfigure):
             raise customexception(e , sys)
 
 
+if __name__ == "__main__":
+    obj = data_ingestion()
+    train_path , test_path = obj.initiate_data_ingestion()
+
+    obj_data_transform = datatranformation()
+    train_data , test_data ,_ = obj_data_transform.initiate_data_transformation(train_path, test_path)
+
+    obj_modeltrainer = ModelTrainer()
+    f1 , report = obj_modeltrainer.initiate_model_trainer(train_data , test_data)
+    print(f1)
 

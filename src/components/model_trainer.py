@@ -116,10 +116,11 @@ class ModelTrainer:
                 raise customexception("No best model found")
 
             logging.info("best model is searched")
-            save_object(file_path = self.model_trainer_config.model_trainer_path , obj = best_model)
+            best_model.fit(x_train, y_train)
 
-
-            best_model.fit(x_train,y_train)
+            save_object(
+                file_path=self.model_trainer_config.model_trainer_path,obj=best_model
+            )
 
             logging.info("model training is over")
 
