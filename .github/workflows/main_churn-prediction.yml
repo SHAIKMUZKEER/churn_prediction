@@ -63,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D130E002D1614F2E854C3834EEBB987E }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CDDB74B0F9C94D39AFAA46481C31D27F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CE5D9BE7CA5A43A9893919F6DD9CD7A2 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -73,5 +73,4 @@ jobs:
         with:
           app-name: 'churn-prediction'
           slot-name: 'Production'
-          package: .
           
