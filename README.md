@@ -13,6 +13,8 @@
 
 ---
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1uU-D-biQJ8594X9ezazSy-nbnMoYfFIZ?usp=sharing)
+
 # 📌 Project Overview
 
 Customer churn is one of the biggest challenges faced by telecom companies. Losing existing customers directly affects revenue and business growth.
