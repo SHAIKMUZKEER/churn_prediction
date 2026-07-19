@@ -429,7 +429,7 @@ GitHub:
 https://github.com/SHAIKMUZKEER
 
 LinkedIn:
-(Add Your LinkedIn URL)
+https://www.linkedin.com/in/shaik-muzkeer-292141340/
 
 ---
 
